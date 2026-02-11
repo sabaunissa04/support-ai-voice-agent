@@ -1,9 +1,59 @@
-US English model for mobile Vosk applications
+STEP1: 
+FFmpeg Installation (Required)
+This project requires FFmpeg for audio processing.
+Windows
+Download FFmpeg from:
+https://www.gyan.dev/ffmpeg/builds/
+C:\ffmpeg\bin\ffmpeg.exe
+C:\ffmpeg\bin\ffprobe.exe
 
-Copyright 2020 Alpha Cephei Inc
+STEP2:
+ Download Vosk speech-to-text models:
+👉 https://alphacephei.com/vosk/models
+After downloading, unzip the model folder and point your code at that folder (e.g., "vosk-model-small-en-us-0.15" as the model path)
 
-Accuracy: 10.38 (tedlium test) 9.85 (librispeech test-clean)
-Speed: 0.11xRT (desktop)
-Latency: 0.15s (right context)
+STEP3:
+🔐 Jira config
+Create a .env file in the root directory:
+JIRA_BASE_URL=https://your-domain.atlassian.net
+JIRA_EMAIL=your-email@example.com
+JIRA_API_TOKEN=your_api_token
+
+▶️ How to Run the Project
+Step 1: Activate Virtual Environment
+python -m venv voiceagent
+voiceagent\Scripts\activate
+Step 2: Install Dependencies
+pip install -r requirements.txt
+Step 3: Run the Application
+python app.py
+💡 After downloading, unzip the model folder and point your code at that folder (e.g., "vosk-model-small-en-us-0.15" as the model path)
+🔄 Workflow Execution
+When executed, the system will:
+Fetch the MP3 attachment from Jira
+
+Download the audio file
+
+Transcribe the audio
+
+Analyze the transcript
+
+Update the Jira ticket automatically
+
+🧠 Architecture
+Jira Ticket
+     ↓
+Audio Fetch Agent
+     ↓
+Transcription Agent
+     ↓
+Analysis Agent
+     ↓
+Jira Update Agent
+
+
+
+
+
 
 
